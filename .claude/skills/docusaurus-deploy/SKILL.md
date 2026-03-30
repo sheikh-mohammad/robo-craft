@@ -253,3 +253,80 @@ This skill does NOT:
 - Test locally before pushing to GitHub
 - Monitor GitHub Actions runs for errors
 - Keep your Docusaurus version updated
+
+## Common Error Patterns and Solutions
+
+### 1. 404 Errors After Deployment
+**Root Cause:** Incorrect `baseUrl` configuration
+**Solution:**
+- For GitHub Pages project: `baseUrl: '/repo-name/'`
+- For custom domain: `baseUrl: '/'`
+- Verify `url` matches your deployment destination
+
+### 2. "Cannot find module" Errors
+**Root Cause:** Missing dependencies or package-lock.json issues
+**Solution:**
+- Run `npm install` locally to verify dependencies
+- Ensure `package-lock.json` is committed to git
+- Verify Node version matches workflow (usually 18+)
+
+### 3. Build Timeout Issues
+**Root Cause:** Large project or insufficient memory in CI environment
+**Solution:**
+- Increase Node memory: `NODE_OPTIONS=--max-old-space-size=4096 npm run build`
+- Optimize images and assets
+- Use build caching in workflow
+
+### 4. Permission Denied in Workflows
+**Root Cause:** Insufficient token permissions
+**Solution:**
+- Check GitHub Actions permissions in repo settings
+- Verify `GITHUB_TOKEN` has write access
+- For Vercel/Netlify: check API token is valid
+
+## Best Practices for Reliable Deployments
+
+1. **Test Locally First:** Always build and serve locally before pushing
+2. **Commit Dependencies:** Ensure `package-lock.json` is committed
+3. **Use GitHub Secrets:** Store sensitive information in GitHub Secrets
+4. **Monitor Builds:** Watch GitHub Actions for errors
+5. **Verify Configuration:** Double-check `docusaurus.config.js` before deployment
+6. **Document Settings:** Keep deployment settings in README for team members
+
+## Quick Reference Guide
+
+### GitHub Pages Setup
+```javascript
+// For project repository (my-docs)
+url: 'https://username.github.io/my-docs',
+baseUrl: '/my-docs/',
+deploymentBranch: 'gh-pages'
+
+// For user/org repository (username.github.io)
+url: 'https://username.github.io',
+baseUrl: '/',
+deploymentBranch: 'main'
+```
+
+### Vercel Deployment
+```yaml
+# vercel.json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "docusaurus"
+}
+```
+
+### Netlify Deployment
+```toml
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```

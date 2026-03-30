@@ -199,6 +199,24 @@
 
 ---
 
+## Platform Migration Issues
+
+### Issue: Migration breaks existing deployment
+**Symptoms:** Site becomes inaccessible after migration
+**Root Cause:** Incorrect configuration for new platform
+**Solution:**
+1. Backup current configuration
+2. Test migration in staging environment
+3. Verify new platform settings match requirements
+4. Update DNS records only after successful deployment
+
+**Prevention:**
+- Always test in staging first
+- Keep backup of original configuration
+- Document migration steps thoroughly
+
+---
+
 ## Verification Checklist
 
 After deployment, verify:
@@ -212,7 +230,7 @@ After deployment, verify:
 - [ ] Mobile responsive design works
 - [ ] Custom domain resolves (if applicable)
 - [ ] HTTPS certificate valid
-- [ ] No console errors in DevTools
+- [ ] No console errors in browser
 
 ---
 
@@ -238,3 +256,29 @@ If issues persist:
 ✅ All assets load without 404s
 ✅ No console errors in browser
 ✅ Mobile view works correctly
+
+## Quick Fix Reference
+
+### For 404 Errors:
+- Check `baseUrl` matches deployment path
+- Verify `url` setting is correct
+- Confirm `deploymentBranch` exists
+- Clear browser cache
+
+### For Dependency Issues:
+- Run `npm install` locally
+- Commit `package-lock.json`
+- Verify Node version
+- Check for missing dependencies
+
+### For Timeout Issues:
+- Add `NODE_OPTIONS=--max-old-space-size=4096`
+- Optimize build process
+- Use caching strategies
+- Split large builds
+
+### For Permission Issues:
+- Check GitHub Actions permissions
+- Verify `GITHUB_TOKEN` has access
+- Validate API tokens
+- Check workflow syntax
