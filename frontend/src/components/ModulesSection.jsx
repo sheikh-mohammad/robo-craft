@@ -102,7 +102,7 @@ const ModulesSection = () => {
             isAdvanced={module.isAdvanced}
             onClick={() => {
               // Navigate to module documentation
-              window.location.href = `/hackathon-i-physical-ai-and-humanoid-robotics-textbook/docs/module-${module.id}`;
+              window.location.href = `/robo-craft/docs/module-${module.id}`;
             }}
           />
         ))}

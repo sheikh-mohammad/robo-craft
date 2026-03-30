@@ -42,7 +42,7 @@ const Navbar = () => {
       }}>
         {/* Logo */}
         <a
-          href="/hackathon-i-physical-ai-and-humanoid-robotics-textbook/"
+          href="/robo-craft/"
           className={`${styles.headline} ${colorStyles.textAccentPrimary}`}
           style={{
             fontSize: '1.5rem',
@@ -76,7 +76,7 @@ const Navbar = () => {
         {/* Navigation Links (Desktop) */}
         <div className={mobileStyles.desktopNav}>
           <a
-            href="/hackathon-i-physical-ai-and-humanoid-robotics-textbook/docs"
+            href="/robo-craft/docs"
             className={`${styles.bodyText}`}
             style={{
               textDecoration: 'none',
@@ -115,7 +115,7 @@ const Navbar = () => {
           </a>
 
           <a
-            href="/hackathon-i-physical-ai-and-humanoid-robotics-textbook/docs/module-0-getting-started-with-physical-ai"
+            href="/robo-craft/docs/module-0-getting-started-with-physical-ai"
             className={`${styles.bodyText}`}
             style={{
               textDecoration: 'none',
@@ -132,7 +132,7 @@ const Navbar = () => {
 
           {/* GitHub Link */}
           <a
-            href="https://github.com/sheikh-mohammad/hackathon-i-physical-ai-and-humanoid-robotics-textbook"
+            href="https://github.com/sheikh-mohammad/robo-craft"
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.bodyText}`}
@@ -170,7 +170,7 @@ const Navbar = () => {
 
               <div className={mobileStyles.mobileMenuItems}>
                 <a
-                  href="/hackathon-i-physical-ai-and-humanoid-robotics-textbook/docs"
+                  href="/robo-craft/docs"
                   className={mobileStyles.mobileMenuItem}
                   onClick={closeMobileMenu}
                 >
@@ -195,7 +195,7 @@ const Navbar = () => {
                 </a>
 
                 <a
-                  href="/hackathon-i-physical-ai-and-humanoid-robotics-textbook/docs/module-0-getting-started-with-physical-ai"
+                  href="/robo-craft/docs/module-0-getting-started-with-physical-ai"
                   className={mobileStyles.mobileMenuItem}
                   onClick={closeMobileMenu}
                 >
@@ -203,7 +203,7 @@ const Navbar = () => {
                 </a>
 
                 <a
-                  href="https://github.com/sheikh-mohammad/hackathon-i-physical-ai-and-humanoid-robotics-textbook"
+                  href="https://github.com/sheikh-mohammad/robo-craft"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={mobileStyles.mobileMenuItem}
